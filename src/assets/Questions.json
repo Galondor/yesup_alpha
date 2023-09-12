@@ -1,0 +1,92 @@
+[
+  {
+    "text": "How many people live in the home?",
+    "options": [
+      { "id": 0, "text": "1", "value": 0 },
+      { "id": 1, "text": "2", "value": 5 },
+      { "id": 2, "text": "3 or 4", "value": 10 },
+      { "id": 3, "text": "5 or more", "value": 15 }
+    ]
+  },
+  {
+    "text": "How many are children?",
+    "options": [
+      { "id": 0, "text": "0", "value": 0 },
+      { "id": 1, "text": "1", "value": 5 },
+      { "id": 2, "text": "2", "value": 10 },
+      { "id": 3, "text": "3 or more", "value": 15 }
+    ]
+  },
+  {
+    "text": "Do you wear shoes in the home?",
+    "options": [
+      { "id": 0, "text": "No", "value": 0 },
+      { "id": 1, "text": "Seldom", "value": 5 },
+      { "id": 2, "text": "Occasionally", "value": 10 },
+      { "id": 3, "text": "Often", "value": 15 }
+    ]
+  },
+  {
+    "text": "How often do you have guests over?",
+    "options": [
+      { "id": 0, "text": "Never", "value": 0 },
+      { "id": 1, "text": "Seldom", "value": 5 },
+      { "id": 2, "text": "Occasionally", "value": 10 },
+      { "id": 3, "text": "Often", "value": 15 }
+    ]
+  },
+  {
+    "text": "How many guests at a time?",
+    "options": [
+      { "id": 0, "text": "0", "value": 0 },
+      { "id": 1, "text": "1 to 2", "value": 5 },
+      { "id": 2, "text": "3 to 4", "value": 10 },
+      { "id": 3, "text": "5 or more", "value": 15 }
+    ]
+  },
+  {
+    "text": "How many cats in the home?",
+    "options": [
+      { "id": 0, "text": "0", "value": 0 },
+      { "id": 1, "text": "1 to 2", "value": 5 },
+      { "id": 2, "text": "3 to 4", "value": 10 },
+      { "id": 3, "text": "5 or more", "value": 15 }
+    ]
+  },
+  {
+    "text": "How many dogs in the home?",
+    "options": [
+      { "id": 0, "text": "0", "value": 0 },
+      { "id": 1, "text": "1", "value": 5 },
+      { "id": 2, "text": "2", "value": 10 },
+      { "id": 3, "text": "3 or more", "value": 15 }
+    ]
+  },
+  {
+    "text": "How many years until you plan on moving?",
+    "options": [
+      { "id": 0, "text": "0", "value": 0 },
+      { "id": 1, "text": "1 to 2", "value": 5 },
+      { "id": 2, "text": "3 to 10", "value": 10 },
+      { "id": 3, "text": "11 or more", "value": 15 }
+    ]
+  },
+  {
+    "text": "How many years do you expect your flooring to last?",
+    "options": [
+      { "id": 0, "text": "Rental or Selling Soon", "value": 0 },
+      { "id": 1, "text": "1 to 5", "value": 5 },
+      { "id": 2, "text": "6 - 10", "value": 10 },
+      { "id": 3, "text": "11 or more", "value": 15 }
+    ]
+  },
+  {
+    "text": "If you were to sell your home, how much would you expect to get?",
+    "options": [
+      { "id": 0, "text": "Rental", "value": 0 },
+      { "id": 1, "text": "$0 to $100,000", "value": 5 },
+      { "id": 2, "text": "$100,000 to $225,000", "value": 10 },
+      { "id": 3, "text": "$250,000 or more", "value": 15 }
+    ]
+  }
+]
