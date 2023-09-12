@@ -55,26 +55,6 @@ header {
   margin: 48px 0px;
 }
 
-.page_header {
-  height: 40px;
-  display: flex;
-  flex-direction: row;
-}
-
-.return_wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  transition: all 300ms ease-in-out;
-}
-
-.return_wrapper:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-}
-
 .row {
   max-width: 1200px;
   margin: 0 auto;
@@ -153,7 +133,7 @@ header {
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 50%;
+  top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -176,6 +156,7 @@ header {
   width: 60%;
   overflow: hidden;
   margin-bottom: 20vh;
+  max-width: 700px;
 }
 
 .quiz_header {
@@ -217,7 +198,7 @@ header {
 }
 
 .option:hover {
-  background-color: darkgrey;
+  background-color: #b8c6db;
   color:#242424;
   cursor: pointer;
   transform: scale(1.1);
@@ -233,6 +214,7 @@ header {
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
   width: 50%;
   height: auto;
+  width: 40%;
 }
 
 .results_title {
@@ -243,4 +225,11 @@ header {
 .results_question {
   color:darkgrey;
   text-align: center;
+}
+
+.results_para {
+  color: #242424;
+  text-align: center;
+  font-size: 18px;
+  margin: 12px 0px;
 }
