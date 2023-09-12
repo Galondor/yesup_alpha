@@ -180,6 +180,7 @@ header {
 
 .quiz_header {
   padding: 64px;
+  padding-bottom: 96px;
 }
 
 .loading_container {

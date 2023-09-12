@@ -103,7 +103,6 @@ function App() {
             })}
             </ul>
           </div>
-          <button id='submit'>Submit</button>
         </div>
       )}
     </body>
