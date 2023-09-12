@@ -60,7 +60,7 @@ function App() {
     if (user) {
       setShowPersonalInfo(false);
     }
-  });
+  }, []);
 
   return (
     <body>
