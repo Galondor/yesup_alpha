@@ -3,7 +3,8 @@ import User from "./components/User";
 import ResultsText from "./components/ResultsText";
 import Questions from "./assets/Questions.json";
 import Quiz from "./components/Quiz";
-import React, { useState } from "react";
+import Recommended from "./components/Recommended";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
@@ -16,16 +17,12 @@ function App() {
   const optionClicked = (value) => {
     setScore((prevScore) => prevScore + value);
 
-    if (showPersonalInfo === true) {
-      
-    }
-
     if (currentQuestion + 1 < Questions.length) {
       document.querySelector(".loader").style.display = "flex";
       setTimeout(() => {
         document.querySelector(".loader").style.display = "none";
         setCurrentQuestion(currentQuestion + 1);
-      }, 1000);
+      }, 100);
     } else {
       if (score >= 0 && score <= 50) {
         setRating("Good");
@@ -36,9 +33,34 @@ function App() {
       if (score >= 101 && score <= 150) {
         setRating("Best");
       }
-      setShowResults(true);
+
+      const now = new Date();
+      const hours = now.getHours();
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+      const time = `${hours}:${minutes}:${seconds}`;
+      const date = now.toDateString();
+      const firstName = JSON.parse(localStorage.getItem("User")).firstName;
+      const lastName = JSON.parse(localStorage.getItem("User")).lastName;
+      const email = JSON.parse(localStorage.getItem("User")).email;
+
+      setTimeout(() => {
+        setShowResults(true);
+        console.log(
+          `Name: ${
+            firstName + " " + lastName
+          } | Score: ${{score}} | Rating: ${rating} | Time: ${time} | Date: ${date} | Email: ${email}`
+        );
+      }, 1000);
     }
   };
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("User"));
+    if (user) {
+      setShowPersonalInfo(false);
+    }
+  });
 
   return (
     <body>
@@ -70,8 +92,18 @@ function App() {
           <h1 className="results_title">Your YESUP Score Is: {score}</h1>
           <h2 className="results_question">What does my score mean?</h2>
           <ResultsText score={score} rating={rating} />
+          <Recommended rating={rating} goodCollection={"https://simpleflooringnetwork.com/collections/good-collection"} 
+          betterCollection={"https://simpleflooringnetwork.com/collections/as-good-as-it-gets"}
+            bestCollection={"https://simpleflooringnetwork.com/collections/best-in-show"}
+          />
         </div>
-      ) : <Quiz currentQuestion={currentQuestion} optionClicked={optionClicked} showPersonalInfo={showPersonalInfo}/>}
+      ) : (
+        <Quiz
+          currentQuestion={currentQuestion}
+          optionClicked={optionClicked}
+          showPersonalInfo={showPersonalInfo}
+        />
+      )}
     </body>
   );
 }
