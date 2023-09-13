@@ -1,3 +1,5 @@
+import React from "react";
+
 function User() {
   function storeData() {
     const firstName = document.getElementById("first_name");

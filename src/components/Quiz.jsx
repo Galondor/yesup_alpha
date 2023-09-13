@@ -1,3 +1,4 @@
+import React from "react";
 import loading from "../assets/loader.svg";
 import Questions from "../assets/Questions.json";
 

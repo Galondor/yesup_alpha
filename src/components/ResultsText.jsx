@@ -1,3 +1,5 @@
+import React from "react";
+
 function ResultsText({ score, rating }) {
     if (rating === "Good") {
         return (

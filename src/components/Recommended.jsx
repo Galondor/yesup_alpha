@@ -1,3 +1,5 @@
+import React from "react";
+
 function Recommended({ rating, goodCollection, betterCollection, bestCollection }) {
     if (rating === "Good") {
         return (
