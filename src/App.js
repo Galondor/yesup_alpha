@@ -12,26 +12,33 @@ function App() {
   const [showResults, setShowResults] = useState(false);
   const [score, setScore] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [rating, setRating] = useState(null);
+  const [rating, setRating] = useState("");
+
+  let useRating = rating;
 
   const optionClicked = (value) => {
-    setScore((prevScore) => prevScore + value);
+    let useScore = score;
+
+    setScore(useScore += value);
+    console.log("useScore: " + useScore + " | " + "Value: " + value + " | " + "Score: " + score);
 
     if (currentQuestion + 1 < Questions.length) {
       document.querySelector(".loader").style.display = "flex";
       setTimeout(() => {
         document.querySelector(".loader").style.display = "none";
         setCurrentQuestion(currentQuestion + 1);
-      }, 100);
+      }, 500);
     } else {
-      if (score >= 0 && score <= 50) {
-        setRating("Good");
+      setScore(useScore);
+      setRating(useRating);
+      if (useScore >= 0 && useScore <= 50) {
+        useRating = "Good";
       }
-      if (score >= 51 && score <= 100) {
-        setRating("Better");
+      if (useScore >= 51 && useScore <= 100) {
+        useRating = "Better";
       }
-      if (score >= 101 && score <= 150) {
-        setRating("Best");
+      if (useScore >= 101 && useScore <= 150) {
+        useRating = "Best";
       }
 
       const now = new Date();
@@ -43,15 +50,18 @@ function App() {
       const firstName = JSON.parse(localStorage.getItem("User")).firstName;
       const lastName = JSON.parse(localStorage.getItem("User")).lastName;
       const email = JSON.parse(localStorage.getItem("User")).email;
+      
+      document.querySelector(".loader").style.display = "flex";
 
       setTimeout(() => {
+        document.querySelector(".loader").style.display = "none";
         setShowResults(true);
         console.log(
           `Name: ${
             firstName + " " + lastName
-          } | Score: ${{score}} | Rating: ${rating} | Time: ${time} | Date: ${date} | Email: ${email}`
+          } | Score: ${useScore} | Rating: ${useRating} | Time: ${time} | Date: ${date} | Email: ${email}`
         );
-      }, 1000);
+      }, 1500);
     }
   };
 
@@ -91,6 +101,7 @@ function App() {
         <div className="results">
           <h1 className="results_title">Your YESUP Score Is: {score}</h1>
           <h2 className="results_question">What does my score mean?</h2>
+          {console.log("Score: " + score + " | " + "Rating: " + useRating)};
           <ResultsText score={score} rating={rating} />
           <Recommended rating={rating} goodCollection={"https://simpleflooringnetwork.com/collections/good-collection"} 
           betterCollection={"https://simpleflooringnetwork.com/collections/as-good-as-it-gets"}

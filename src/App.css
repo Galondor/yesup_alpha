@@ -41,7 +41,7 @@ button {
 }
 
 button:hover {
-  background-color: #b8c6db;
+  background-color: #5ce1e6;
   color: #242424;
   border: 1px solid #242424;
 }
@@ -201,7 +201,7 @@ header {
 }
 
 .option:hover {
-  background-color: #b8c6db;
+  background-color: #5ce1e6;
   color:#242424;
   cursor: pointer;
   transform: scale(1.1);
@@ -289,6 +289,6 @@ header {
 .view_products-btn:hover {
   cursor: pointer;
   transform: scale(1.025);
-  background-color: #b8c6db;
+  background-color: #5ce1e6;
   color:#242424;
 }
