@@ -1,10 +1,14 @@
 import logo from "./assets/SFN FIT.svg";
+
 import User from "./components/User";
 import ResultsText from "./components/ResultsText";
 import Questions from "./assets/Questions.json";
 import Quiz from "./components/Quiz";
 import Recommended from "./components/Recommended";
+
 import emailjs from "@emailjs/browser";
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, set } from "firebase/database";
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
@@ -13,11 +17,11 @@ function App() {
   const [showResults, setShowResults] = useState(false);
   const [score, setScore] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const firebaseApp = initializeApp({
+
+  });
 
   require("dotenv").config();
-  const publicKey = "";
-  const templateID = "";
-  const serviceID = "";
 
   let rating;
 
@@ -71,7 +75,22 @@ function App() {
       const firstName = JSON.parse(localStorage.getItem("User")).firstName;
       const lastName = JSON.parse(localStorage.getItem("User")).lastName;
       const email = JSON.parse(localStorage.getItem("User")).email;
-      console.log("FirstName: " + firstName);
+
+
+      function writeUserData(userId, name, useScore, rating, time, date, email) {
+        const db = getDatabase();
+        const reference = ref(db, "users/" + userId);
+
+        set(reference, {
+          name: name,
+          score: useScore,
+          rating: rating,
+          time: time,
+          date: date,
+          email: email,
+        });
+        console.log("Data Written!");
+      }
 
       localStorage.setItem(
         "User",
@@ -88,10 +107,11 @@ function App() {
         document.querySelector(".loader").style.display = "none";
         setShowResults(true);
 
-        const mailForm = document.getElementById("email_form");
         const name = document.getElementById("name");
         const emailEl = document.getElementById("email");
         const message = document.getElementById("message");
+        let userName = firstName + " " + lastName;
+        let userId = lastName + ", " + firstName + Math.floor(Math.random() * 999999);
 
         name.value = firstName + " " + lastName;
         emailEl.value = email;
@@ -111,6 +131,7 @@ function App() {
           .catch((err) => {
             console.log(err);
           });
+        writeUserData(userId, userName, useScore, rating, time, date, email);
       }, 1500);
     }
   };
