@@ -4,6 +4,7 @@ import ResultsText from "./components/ResultsText";
 import Questions from "./assets/Questions.json";
 import Quiz from "./components/Quiz";
 import Recommended from "./components/Recommended";
+import emailjs from "@emailjs/browser";
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
@@ -12,6 +13,11 @@ function App() {
   const [showResults, setShowResults] = useState(false);
   const [score, setScore] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
+
+  require("dotenv").config();
+  const publicKey = "";
+  const templateID = "";
+  const serviceID = "";
 
   let rating;
 
@@ -81,11 +87,30 @@ function App() {
       setTimeout(() => {
         document.querySelector(".loader").style.display = "none";
         setShowResults(true);
-        console.log(
-          `Name: ${firstName +
-            " " +
-            lastName} | Score: ${useScore} | Rating: ${rating} | Time: ${time} | Date: ${date} | Email: ${email}`
-        );
+
+        const mailForm = document.getElementById("email_form");
+        const name = document.getElementById("name");
+        const emailEl = document.getElementById("email");
+        const message = document.getElementById("message");
+
+        name.value = firstName + " " + lastName;
+        emailEl.value = email;
+        message.value = `Name: ${firstName +
+          " " +
+          lastName} \n Score: ${useScore} \n Rating: ${rating} \n Time: ${time} \n Date: ${date} \n Email: ${email}`;
+        let templateParams = {
+          name: name.value,
+          email: emailEl.value,
+          message: message.value,
+        };
+        emailjs
+          .send(serviceID, templateID, templateParams, publicKey)
+          .then(() => {
+            console.log("Email Sent!");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }, 1500);
     }
   };
@@ -126,7 +151,7 @@ function App() {
         <div className='results'>
           <h1 className='results_title'>Your YESUP Score Is: {score}</h1>
           <h2 className='results_question'>What does my score mean?</h2>
-          <ResultsText score={score}/>
+          <ResultsText score={score} />
           <Recommended
             goodCollection={
               "https://simpleflooringnetwork.com/collections/good-collection"
@@ -146,6 +171,13 @@ function App() {
           showPersonalInfo={showPersonalInfo}
         />
       )}
+      <form id='email_form'>
+        <div className='user_info' style={{ display: "none" }}>
+          <input id='name' type='text' name='user_name' />
+          <input id='email' type='email' name='user_email' />
+          <textarea name='message' id='message' defaultValue={""} />
+        </div>
+      </form>
     </body>
   );
 }
