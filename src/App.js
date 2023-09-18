@@ -18,8 +18,19 @@ function App() {
   const [score, setScore] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const firebaseApp = initializeApp({
-
+    apiKey: `${process.env.REACT_APP_FB_API_KEY}`,
+    authDomain: `${process.env.REACT_APP_AUTH_DOMAIN}`,
+    databaseURL: `${process.env.REACT_APP_DB_URL}`,
+    projectId: `${process.env.REACT_APP_PROJECT_ID}`,
+    storageBucket: `${process.env.REACT_APP_STORAGE_BUCKET}`,
+    messagingSenderId: `${process.env.REACT_APP_SENDER_ID}`,
+    appId: `${process.env.REACT_APP_APP_ID}`,
+    measurementId: `${process.env.REACT_APP_MEASUREMENT_ID}`,
   });
+
+  const publicKey = process.env.REACT_APP_PUBLIC_API_KEY;
+  const templateID = process.env.REACT_APP_TEMPLATE_ID;
+  const serviceID = process.env.REACT_APP_SERVICE_ID;
 
   require("dotenv").config();
 
