@@ -2,7 +2,6 @@ import React from "react";
 
 function ResultsText({ score }) {
     const rating = JSON.parse(localStorage.getItem("User")).rating;
-    console.log(rating);
     if (rating === "Good") {
         return (
             <p className="results_para" key={rating}>A score of {score} places you in the <strong>{rating}</strong> category. <br />

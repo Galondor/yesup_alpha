@@ -256,7 +256,29 @@ header {
 
 .rec_title {
   color:#242424;
-  margin-top: 24px
+}
+
+.quizID {
+  color: #242424;
+  margin: 4px 0px;
+}
+
+.quizID_para {
+  color:#242424;
+  text-align: center;
+  margin: 4px 0px 24px 0px;
+}
+
+.QID {
+  transition: all 200ms ease-in-out;
+  color: #5ce1e6;
+  font-weight: bold;
+}
+
+.QID:hover {
+  cursor: pointer;
+  color: #b8c6db;
+  text-decoration: underline;
 }
 
 .rec_para {
