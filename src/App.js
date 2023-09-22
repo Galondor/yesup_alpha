@@ -34,6 +34,7 @@ function App() {
 
   const publicKey = process.env.REACT_APP_PUBLIC_API_KEY;
   const templateID = process.env.REACT_APP_TEMPLATE_ID;
+  const userTemplateID = process.env.REACT_APP_USER_TEMPLATE_ID;
   const serviceID = process.env.REACT_APP_SERVICE_ID;
 
   require("dotenv").config();
@@ -117,10 +118,20 @@ function App() {
           " " +
           lastName} \n Score: ${useScore} \n Rating: ${rating} \n Time: ${time} \n Date: ${date} \n Email: ${email}`;
 
-        let templateParams = {
+        const templateParams = {
           name: userName,
           email: email,
           message: message,
+          userId: userId,
+        };
+
+        const userTemplateParams = {
+          email: email,
+          userId: userId,
+          score: useScore,
+          rating: rating,
+          time: time,
+          date: date,
         };
 
         // const msg = {
@@ -134,7 +145,17 @@ function App() {
         emailjs
           .send(serviceID, templateID, templateParams, publicKey)
           .then(() => {
-            console.log("Email Sent!");
+            console.log("Email Sent! #1");
+          })
+          .catch((err) => {
+            console.log(err);
+
+          });
+
+          emailjs
+          .send(serviceID, userTemplateID, userTemplateParams, publicKey)
+          .then(() => {
+            console.log("Email Sent! #2");
           })
           .catch((err) => {
             console.log(err);
