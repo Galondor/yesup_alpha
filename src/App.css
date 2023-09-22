@@ -395,6 +395,28 @@ header {
   body {
     height: 120vh;
   }
+
+  .intro_para {
+    padding: 8px;
+    margin-bottom: 16px;
+    font-size: 18px;
+  }
+  
+  .cover {
+    height: 50%;
+  }
+
+  .quiz_header {
+    padding: 32px;
+  }
+
+  .quiz_container {
+    width: 90%;
+  }
+
+  .results {
+    width: 90% !important;
+  }
 }
 
 @media (max-width: 768px) {
