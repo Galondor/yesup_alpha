@@ -16,7 +16,6 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  height: 125vh;
 }
 
 nav {
@@ -330,6 +329,10 @@ header {
     margin-top: 20px;
   }
 
+  .quiz_container {
+    width: 90%;
+  }
+
 }
 
 @media (max-width: 425px) {
@@ -354,6 +357,10 @@ header {
     text-align: center;
     max-width: 170px;
   }
+
+  .quiz_container {
+    width: 90%;
+  }
 }
 
 @media (max-width: 375px) {
@@ -376,6 +383,10 @@ header {
 
   .option {
     font-size: 18px;
+  }
+
+  .quiz_container {
+    width: 90%;
   }
 }
 
@@ -443,5 +454,25 @@ header {
 
   .results {
     width: 70%;
+  }
+}
+
+@media (max-width: 1440px) {
+  body {
+    height: 124vh;
+  }
+
+  .cover {
+    margin-top: 24px;
+    height: 55%;
+    top: 85%;
+  }
+
+  .submit_info {
+    margin-bottom: 24px;
+  }
+
+  .message {
+    margin-top: 32px;
   }
 }
