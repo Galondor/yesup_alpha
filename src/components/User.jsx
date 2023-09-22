@@ -17,10 +17,10 @@ function User() {
           email: email.value,
         })
       );
+      cover.classList.add("fade_out");
       setTimeout(() => {
-        cover.style.transform = "translateX(-250%)";
         window.location.reload();
-      }, 1000);
+      }, 2000);
     } else {
       alert("Please fill in all fields.");
     }

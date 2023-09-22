@@ -317,6 +317,20 @@ header {
   color:#242424;
 }
 
+.fade_out {
+  animation: fadeOut 2s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 @media (max-width: 390px) {
   .title {
     font-size: 24px;
