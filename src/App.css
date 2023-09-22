@@ -16,6 +16,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  height: 124vh;
 }
 
 nav {
@@ -393,6 +394,16 @@ header {
 @media (max-width: 320px) {
   .info_container {
     transform: translateX(-10px);
+    padding: 0px;
+  }
+
+  .message {
+    margin-top: 0px !important;
+    margin-bottom: 12px;
+  }
+
+  .title {
+    font-size: 26px;
   }
 
   .submit_info {
@@ -458,10 +469,6 @@ header {
 }
 
 @media (max-width: 1440px) {
-  body {
-    height: 124vh;
-  }
-
   .cover {
     margin-top: 24px;
     height: 55%;
