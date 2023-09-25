@@ -18,9 +18,6 @@ function App() {
   const [score, setScore] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
-  // const sendGridApiKey = process.env.REACT_APP_SENDGRID_API_KEY;
-  // const sgMail = require("@sendgrid/mail");
-
   const firebaseApp = initializeApp({
     apiKey: `${process.env.REACT_APP_FB_API_KEY}`,
     authDomain: `${process.env.REACT_APP_AUTH_DOMAIN}`,
@@ -134,18 +131,9 @@ function App() {
           date: date,
         };
 
-        // const msg = {
-        //   to: email,
-        //   from: "SimpleFlooringNetwork.Scores@Simple-Flooring.com",
-        //   subject: "Your YESUP Score!",
-        //   text: message,
-        //   html: `<strong>${message}</strong>`,
-        // }
-
         emailjs
           .send(serviceID, templateID, templateParams, publicKey)
           .then(() => {
-            console.log("Email Sent! #1");
           })
           .catch((err) => {
             console.log(err);
@@ -155,20 +143,12 @@ function App() {
           emailjs
           .send(serviceID, userTemplateID, userTemplateParams, publicKey)
           .then(() => {
-            console.log("Email Sent! #2");
           })
           .catch((err) => {
             console.log(err);
 
           });
           writeUserData(userId, userName, useScore, rating, time, date, email);
-
-          // sgMail.setApiKey(sendGridApiKey);
-          // sgMail.send(msg).then(() => {
-          //   console.log("Email Sent!");
-          // }).catch((err) => {
-          //   console.log(err);
-          // });
       }, 1500);
     }
   };
