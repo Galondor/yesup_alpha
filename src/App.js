@@ -10,9 +10,11 @@ import emailjs from "@emailjs/browser";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set } from "firebase/database";
 import React, { useState, useEffect } from "react";
+import { inject } from "@vercel/analytics";
 import "./App.css";
 
 function App() {
+  inject();
   const [showPersonalInfo, setShowPersonalInfo] = useState(true);
   const [showResults, setShowResults] = useState(false);
   const [score, setScore] = useState(0);
